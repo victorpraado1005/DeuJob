@@ -1,39 +1,25 @@
 import styled from 'styled-components';
 
 export const Container = styled.header`
-  position: fixed;
-  top:0;
-  left: 0;
-  width: 100%;
-  height: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.primary.dark};
-  padding: 0px 10px;
+  padding: 12px 20px;
 
-  img{
-    width: 200px;
-    height: 50px;
-  }
-`;
+  ul {
+  display: flex;
+}
 
-export const ButtonArea = styled.div`
-  button{
-    width: 100px;
-  }
+li {
+  list-style: none;
+  color: white;
+  margin-left: 15px;
+  font-size: 18px;
+}
 
-  button ~ button{
-      margin-left: 12px;
-  }
-
-  a {
-    text-decoration: none;
-    color: ${({ theme }) => theme.colors.primary.dark};
-  }
-
-  .delete-button{
-    color: ${({ theme }) => theme.colors.background};
-    background: ${({ theme }) => theme.colors.danger.main};
-  }
+.active {
+  color: #F6E51C;
+  padding-bottom: 2px;
+  border-bottom: 2px solid #F6E51C;
+}
 `;

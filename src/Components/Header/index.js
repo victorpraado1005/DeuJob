@@ -1,23 +1,27 @@
-import { useContext } from 'react';
+// import { useContext } from 'react';
 
-import { Context } from '../../Context/AuthContext';
+// import { Context } from '../../Context/AuthContext';
 
-import { Container, ButtonArea } from './style';
+import { Container } from './style';
 
-import Button from '../../button';
+// import Button from '../../button';
 
-import logoDark from '../../assets/images/logo_dark.svg';
+import logoDeuJob from '../../assets/images/logo.png';
 
 export default function Header() {
-  const { handleLogout } = useContext(Context);
+  // const { handleLogout } = useContext(Context);
 
   return (
     <Container>
-      <img src={logoDark} alt="" />
-      <ButtonArea>
-        <Button type="button"><a href="https://victorpraado1005.github.io/site-PetVerso/#contato" target="_blank" rel="noreferrer">Contato</a></Button>
-        <Button type="button" className="delete-button" onClick={handleLogout}>Sair</Button>
-      </ButtonArea>
+      <div className="image-logo">
+        <img src={logoDeuJob} alt="" />
+      </div>
+      <ul>
+        <li className="active">Login</li>
+        <li>Criar Conta</li>
+        <li>Sobre</li>
+        <li>Contato</li>
+      </ul>
     </Container>
   );
 }

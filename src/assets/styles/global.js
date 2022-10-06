@@ -1,18 +1,20 @@
 import { createGlobalStyle } from 'styled-components';
 
-export default createGlobalStyle`
-  *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Sora', sans-serif;
-  }
+import fundo from '../images/fundo.png';
 
-  body{
-    background: #FFFFDE;
-    font-size: 16px;
-    margin: auto;
-  }
+export default createGlobalStyle`
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Farro', sans-serif;
+}
+
+body {
+  background-image: url(${fundo});
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
   button{
     cursor: pointer;

@@ -1,13 +1,11 @@
 import styled from 'styled-components';
 
 export const Container = styled.main`
-  width: 100vw;
-  height: 100vh;
-  background: ${({ theme }) => theme.colors.primary.light};
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 200px;
 
   img{
     position: relative;
@@ -17,17 +15,15 @@ export const Container = styled.main`
 `;
 
 export const Content = styled.div`
-  width: 100%;
-  max-width: 500px;
-  background: ${({ theme }) => theme.colors.primary.main};
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
-  border-radius: 8px;
-  margin: auto;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  font-size: 16px;
-  padding: 40px 0;
+  width: 454px;
+  height: 365px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 25px;
+  color: white;
 
   h1{
     color: ${({ theme }) => theme.colors.background};
@@ -44,18 +40,9 @@ export const Content = styled.div`
 
 export const ButtonArea = styled.div`
   display: flex;
-  margin-top: 24px;
-
-  button{
-    width: 100px;
-   }
+  margin-top: 12px;
 
    button ~ button {
     margin-left: 8px;
-   }
-
-   .button-login{
-    background: ${({ theme }) => theme.colors.primary.dark};
-    color: ${({ theme }) => theme.colors.background};
    }
 `;

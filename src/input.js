@@ -1,18 +1,18 @@
 import styled, { css } from 'styled-components';
 
 export default styled.input`
-  margin-top: 8px;
-  width: 100%;
-  height: 32px;
-  background: ${({ theme }) => theme.colors.background};
+  width: 410px;
+  height: 52px;
+  background: rgba(61, 61, 61, 0.8);
+  border-radius: 12px;
   border: none;
-  border-radius: 6px;
-  padding: 8px;
   outline: none;
+  padding: 12px;
+  color: #F6E51C;
 
-  ${({ error }) => error && css`
+  /* ${({ error }) => error && css`
     color: ${({ theme }) => theme.colors.danger.dark};
     border: 2px solid ${({ theme }) => theme.colors.danger.dark};
     font-weight: bold;
-  `}
+  `} */
 `;

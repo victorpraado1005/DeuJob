@@ -1,17 +1,11 @@
-import { useContext } from 'react';
+import { useEffect, useContext } from 'react';
 
-import { ContainerCardsHome } from './style';
-
+import { getDoc, doc } from 'firebase/firestore';
 import { Context } from '../../Context/AuthContext';
 
 import Header from '../../Components/Header';
-import WelcomeSection from '../../Components/WelcomeSection';
-// import AnimalHome from '../../Components/AnimalHome';
-import Footer from '../../Components/Footer';
-import Dicas from '../../Components/Dicas';
-import MeusAnimaisHome from '../../Components/MeusAnimaisHome';
-import MeusPedidosHome from '../../Components/MeusPedidosHome';
-import AgendamentosHome from '../../Components/AgendamentosHome';
+
+import { db } from '../../utils/firebaseUtils';
 
 export default function Home() {
   const { authenticated } = useContext(Context);
@@ -21,17 +15,25 @@ export default function Home() {
     console.debug(UserId);
   }
 
+  const fetchBlogs = async () => {
+    const docRef = doc(db, 'Mmf1VfLnzcDbqf4t2Q04', 'Victor');
+    const docSnap = await getDoc(docRef);
+    console.log(docSnap);
+    // if (docSnap.exists()) {
+    //   console.log('Document data:', docSnap.data());
+    // } else {
+    //   // doc.data() will be undefined in this case
+    //   console.log('No such document!');
+    // }
+  };
+
+  useEffect(() => {
+    fetchBlogs();
+  }, []);
+
   return (
     <>
       <Header />
-      <WelcomeSection />
-      <Dicas />
-      <ContainerCardsHome>
-        <MeusPedidosHome />
-        <MeusAnimaisHome />
-        <AgendamentosHome />
-      </ContainerCardsHome>
-      <Footer />
     </>
   );
 }
