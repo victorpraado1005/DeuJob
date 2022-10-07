@@ -1,8 +1,8 @@
 import HttpClient from './utils/HttpClient';
 
-class AnimalsService {
+class UserService {
   constructor() {
-    this.httpClient = new HttpClient('https://api-petverso.herokuapp.com');
+    this.httpClient = new HttpClient('https://api-deujob.herokuapp.com');
   }
 
   getUserById(id) {
@@ -18,4 +18,4 @@ class AnimalsService {
   }
 }
 
-export default new AnimalsService();
+export default new UserService();

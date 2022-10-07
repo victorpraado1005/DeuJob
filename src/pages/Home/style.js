@@ -1,26 +1,27 @@
 import styled from 'styled-components';
 
-export const ContainerCardsHome = styled.div`
+export const PontosContainer = styled.div`
+  margin-bottom: 20px;
   display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 80px;
+  align-items: center;
+  justify-content: center;
+
+  img{
+    margin-right: 5px;
+  }
 `;
 
-export const CardHome = styled.div`
-    max-width: 450px;
-    width: 100%;
-    margin-top: 25px;
-    background: ${({ theme }) => theme.colors.primary.light};
-    border-radius: 6px;
-    color: ${({ theme }) => theme.colors.background};
-    font-weight: bold;
-    padding: 12px;
+export const TitleContainer = styled.div`
+  text-align: center;
 
-    h1{
-      font-size: 22px;
-    }
+  h3 {
+    margin-bottom: 10px;
+  }
+`;
 
-    @media screen and (max-width: 1380px) {
-      width: 300px;
-    }
+export const ContainerCards = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 30px;
+  padding: 12px;
 `;

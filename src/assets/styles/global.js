@@ -14,6 +14,7 @@ body {
   background-image: url(${fundo});
   background-repeat: no-repeat;
   background-size: cover;
+  color: white;
 }
 
   button{
