@@ -13,6 +13,10 @@ class CandidatoService {
     return this.httpClient.get(`/user/vagas/${id}`);
   }
 
+  VerficiarCandidatura(vagaId, userId) {
+    return this.httpClient.get(`/candidatura/${vagaId}/${userId}`);
+  }
+
   createCandidatura(candidatura) {
     return this.httpClient.post('/candidatos', candidatura);
   }

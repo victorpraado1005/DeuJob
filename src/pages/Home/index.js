@@ -37,15 +37,11 @@ export default function Home() {
         const user = await UserService.getUserById(UserId);
         setUserData(user);
         const vagaList = await VagasService.getVagas();
+        setVagas(vagaList);
         const vagasCandidato = await CandidatoService.getVagasByCandidatoId(
           UserId,
         );
         setCandidaturas(vagasCandidato);
-        setVagas(vagaList);
-        for (let index = 0; index < vagasCandidato.length; index++) {
-          const element = vagasCandidato[index];
-          setVagas((prevState) => prevState.filter((vaga) => vaga.id !== element.id));
-        }
       } catch (error) {
         console.log(error.message);
       }

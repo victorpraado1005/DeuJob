@@ -17,10 +17,18 @@ export default function Header() {
         <img src={logoDeuJob} alt="" />
       </div>
       <ul>
-        <li className="active">Login</li>
-        <li>Criar Conta</li>
-        <li>Sobre</li>
-        <li>Contato</li>
+        <li>
+          Login
+        </li>
+        <li>
+          Criar Conta
+        </li>
+        <li>
+          Sobre
+        </li>
+        <li>
+          Contato
+        </li>
       </ul>
     </Container>
   );
