@@ -27,6 +27,12 @@ export const CardTodosTestes = styled.div`
     font-weight: normal;
     margin-bottom: 20px;
   }
+
+  .title-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
 `;
 
 export const CardTeste = styled.div`

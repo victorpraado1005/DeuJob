@@ -67,44 +67,44 @@ export default function VagasDetalhes() {
           {candidatos.map((candidato) => (
             <CardCandidatoVaga key={candidato.id}>
               <div className="container-info-candidato">
-                <div>
+                <div className="info-user">
                   <div className="info-candidato">
-                    <span>Nome: </span>
+                    <span className="font-yellow">Nome: </span>
                     <span>{candidato.nome}</span>
                   </div>
                   <div className="info-candidato">
-                    <span>Email: </span>
-                    <span>{candidato.nome}</span>
+                    <span className="font-yellow">Email: </span>
+                    <span>{candidato.email}</span>
                   </div>
                   <div className="info-candidato">
-                    <span>Telefone: </span>
-                    <span>{candidato.nome}</span>
+                    <span className="font-yellow">Telefone: </span>
+                    <span>{candidato.telefone}</span>
                   </div>
                   <div className="info-candidato">
-                    <span>Gênero: </span>
-                    <span>{candidato.nome}</span>
+                    <span className="font-yellow">Gênero: </span>
+                    <span>{candidato.genero}</span>
                   </div>
                   <div className="info-candidato">
-                    <span>Cidade: </span>
-                    <span>{candidato.nome}</span>
+                    <span className="font-yellow">Cidade: </span>
+                    <span>{candidato.cidade}</span>
                   </div>
                   <div className="info-candidato">
-                    <span>Estado: </span>
-                    <span>{candidato.nome}</span>
+                    <span className="font-yellow">Estado: </span>
+                    <span>{candidato.estado}</span>
                   </div>
                 </div>
-                <div>
+                <div className="info-historico-user">
                   <div className="info-candidato">
-                    <span>Formação Acadêmica: </span>
-                    <span>{candidato.nome}</span>
+                    <span className="font-yellow">Formação Acadêmica: </span>
+                    <span>{candidato.formacao_academica}</span>
                   </div>
                   <div className="info-candidato">
-                    <span>Idiomas e Habilidades: </span>
-                    <span>{candidato.nome}</span>
+                    <span className="font-yellow">Idiomas e Habilidades: </span>
+                    <span>{candidato.habilidades}</span>
                   </div>
                   <div className="info-candidato">
-                    <span>Histórico Profissional: </span>
-                    <span>{candidato.nome}</span>
+                    <span className="font-yellow">Histórico Profissional: </span>
+                    <span>{candidato.historico_profissional}</span>
                   </div>
                 </div>
               </div>

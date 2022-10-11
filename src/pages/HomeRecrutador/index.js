@@ -46,11 +46,21 @@ export default function HomeRecrutador() {
       </TitleContainer>
       <ContainerCards>
         <CardTodosTestes>
-          <h4>Lista de Testes Cadastrados</h4>
+          <div className="title-container">
+            <h4>Lista de Testes Cadastrados</h4>
+            <Link to="/addTeste">
+              <img src={add} alt="" />
+            </Link>
+          </div>
           {testes.map((testeAtual) => (
             <CardTeste>
               <h4>{testeAtual.nome}</h4>
-              <button type="button">Exibir detalhes</button>
+              <button
+                type="button"
+                onClick={() => history.push(`/testeDetalhes/${testeAtual.nome}`)}
+              >
+                Exibir detalhes
+              </button>
             </CardTeste>
           ))}
         </CardTodosTestes>

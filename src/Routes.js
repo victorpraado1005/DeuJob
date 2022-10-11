@@ -5,6 +5,8 @@ import Home from './pages/Home';
 import HomeRecrutador from './pages/HomeRecrutador';
 import VagasDetalhes from './pages/VagasDetalhes';
 import AddVaga from './pages/AddVaga';
+import TesteDetalhes from './pages/TesteDetalhes';
+import AddTeste from './pages/AddTeste';
 
 function CustomRoute({ isPrivate, ...rest }) {
   const logged = localStorage.getItem('UserID');
@@ -24,6 +26,8 @@ export default function Routes() {
       <CustomRoute isPrivate exact path="/home/recrutador" component={HomeRecrutador} />
       <CustomRoute isPrivate exact path="/vaga/:id" component={VagasDetalhes} />
       <CustomRoute isPrivate exact path="/addVaga" component={AddVaga} />
+      <CustomRoute isPrivate exact path="/testeDetalhes/:nome" component={TesteDetalhes} />
+      <CustomRoute isPrivate exact path="/addTeste" component={AddTeste} />
     </Switch>
   );
 }

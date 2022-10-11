@@ -60,9 +60,17 @@ export const CardCandidatoVaga = styled.div`
   .container-info-candidato{
     display: flex;
     justify-content: space-between;
+
+    .info-user{
+      width: 500px;
+    }
   }
 
   .info-candidato{
     margin-bottom: 20px;
+  }
+
+  .font-yellow{
+    color: yellow;
   }
 `;
