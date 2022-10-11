@@ -20,6 +20,10 @@ class VagasService {
   updateVaga(id, vaga) {
     return this.httpClient.put(`/vagas/${id}`, vaga);
   }
+
+  deleteVaga(id) {
+    return this.httpClient.delete(`/vagas/${id}`);
+  }
 }
 
 export default new VagasService();

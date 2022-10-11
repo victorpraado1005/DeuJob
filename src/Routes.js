@@ -1,7 +1,9 @@
 import { Switch, Route, Redirect } from 'react-router-dom';
 
-import Login from './pages/Login';
-import Home from './pages/Home';
+import TelaInicial from './pages/TelaInicial';
+import LoginRecrutador from './pages/LoginRecrutador';
+import LoginCandidato from './pages/LoginCandidato';
+import HomeCandidato from './pages/HomeCandidato';
 import HomeRecrutador from './pages/HomeRecrutador';
 import VagasDetalhes from './pages/VagasDetalhes';
 import AddVaga from './pages/AddVaga';
@@ -21,8 +23,10 @@ function CustomRoute({ isPrivate, ...rest }) {
 export default function Routes() {
   return (
     <Switch>
-      <CustomRoute exact path="/" component={Login} />
-      <CustomRoute isPrivate exact path="/home" component={Home} />
+      <CustomRoute exact path="/" component={TelaInicial} />
+      <CustomRoute exact path="/login/recrutador" component={LoginRecrutador} />
+      <CustomRoute exact path="/login/candidato" component={LoginCandidato} />
+      <CustomRoute isPrivate exact path="/home/candidato" component={HomeCandidato} />
       <CustomRoute isPrivate exact path="/home/recrutador" component={HomeRecrutador} />
       <CustomRoute isPrivate exact path="/vaga/:id" component={VagasDetalhes} />
       <CustomRoute isPrivate exact path="/addVaga" component={AddVaga} />

@@ -6,4 +6,5 @@ export default styled.button`
   background: #F6E51C;
   border-radius: 5px;
   font-weight: bold;
+  border: none;
 `;

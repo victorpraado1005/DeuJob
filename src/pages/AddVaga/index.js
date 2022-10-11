@@ -9,6 +9,7 @@ import Header from '../../Components/Header';
 import VagasService from '../../services/VagasService';
 
 import arrowLeft from '../../assets/images/leftArrow.png';
+import history from '../../history';
 
 export default function AddVaga() {
   const [nome, setNome] = useState('');
@@ -47,6 +48,7 @@ export default function AddVaga() {
       setBenefico('');
       setRequisitos('');
       setDescricao('');
+      history.push('/home/recrutador');
     } catch {
       alert('Não foi possível criar a vaga  no momento. Tente Novamente.');
     }

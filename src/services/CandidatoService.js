@@ -24,6 +24,10 @@ class CandidatoService {
   updateCandidatura(id, vaga) {
     return this.httpClient.put(`/candidatos/${id}`, vaga);
   }
+
+  deleteCandidaturasByVagaId(vagaId) {
+    return this.httpClient.delete(`/candidatos/${vagaId}`);
+  }
 }
 
 export default new CandidatoService();

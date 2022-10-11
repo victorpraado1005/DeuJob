@@ -17,11 +17,13 @@ import {
 import Header from '../../Components/Header';
 import arrowLeft from '../../assets/images/leftArrow.png';
 import filter from '../../assets/images/filter.png';
+import history from '../../history';
 
 export default function VagasDetalhes() {
   const { id } = useParams();
   const [infoVaga, setInfoVaga] = useState('');
   const [candidatos, setCandidatos] = useState([]);
+  const [auxCandidatos, setAuxCandidatos] = useState([]);
   const [filtroPretensao, setFiltroPretensao] = useState('');
 
   useEffect(() => {
@@ -30,8 +32,8 @@ export default function VagasDetalhes() {
         const dataVaga = await VagasService.getVagasById(id);
         setInfoVaga(dataVaga);
         const candidatosVaga = await CandidatoService.getCandidatosByVagaId(id);
-        console.log(candidatosVaga);
         setCandidatos(candidatosVaga);
+        setAuxCandidatos(candidatosVaga);
       } catch (error) {
         console.log(error.message);
       }
@@ -39,9 +41,16 @@ export default function VagasDetalhes() {
   }, []);
 
   function handleFiltrar() {
+    setCandidatos(auxCandidatos);
     setCandidatos((prevState) => prevState.filter(
       (candidatoAtual) => candidatoAtual.pretensao_salarial <= filtroPretensao,
     ));
+  }
+
+  async function handleRemoveVaga() {
+    await CandidatoService.deleteCandidaturasByVagaId(id);
+    await VagasService.deleteVaga(id);
+    history.push('/home/recrutador');
   }
 
   return (
@@ -64,6 +73,9 @@ export default function VagasDetalhes() {
         <CardVaga>
           <TitleCard>
             <h1>{infoVaga.nome}</h1>
+            <button type="button" onClick={handleRemoveVaga}>
+&nbsp;
+            </button>
           </TitleCard>
           <span>Descrição:</span>
           <CardDescricaoVaga>

@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import remove from '../../assets/images/remove_red.png';
+
 export const CardTeste = styled.div`
   width: 1034px;
   height: 720px;
@@ -14,6 +16,16 @@ export const CardTeste = styled.div`
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
+  }
+
+  button{
+    margin-top: 20px;
+    background: rgba(61, 61, 61, 0.1);
+    background-image: url(${remove});
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    color: white;
   }
 `;
 

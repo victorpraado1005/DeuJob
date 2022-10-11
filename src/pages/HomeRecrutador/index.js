@@ -9,6 +9,8 @@ import { teste } from '../../utils/mock/teste';
 
 import history from '../../history';
 
+import Loader from '../../Components/Loader';
+
 import {
   TitleContainer,
   ContainerCards,
@@ -21,24 +23,35 @@ import {
 import add from '../../assets/images/add.png';
 
 export default function HomeRecrutador() {
+  const UserName = localStorage.getItem('UserName');
+  const [isLoading, setIsLoading] = useState(false);
   const [vagas, setVagas] = useState([]);
   const [testes] = useState(teste);
 
   useEffect(() => {
     (async () => {
       try {
+        setIsLoading(true);
         const vagaList = await VagasService.getVagas();
         setVagas(vagaList);
       } catch (error) {
         console.log(error.message);
+      } finally {
+        setIsLoading(false);
       }
     })();
   }, []);
   return (
     <>
+      <Loader isLoading={isLoading} />
       <Header />
       <TitleContainer>
-        <h1>Bem-vindo!</h1>
+        <h1>
+          Bem-vindo,
+          {' '}
+          {UserName}
+          !
+        </h1>
         <span>
           Visualize e cadastre suas vagas e tenha acesso a central de mensagens
           com os candidatos

@@ -11,30 +11,30 @@ import Header from '../../Components/Header';
 
 import history from '../../history';
 
-export default function Login() {
+export default function LoginRecrutador() {
   const { login } = useContext(Context);
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [isLoading] = useState(false);
+  const [senha, setSenha] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   function handleEmailChange(event) {
     setEmail(event.target.value);
   }
 
   function handlePasswordChange(event) {
-    setPassword(event.target.value);
+    setSenha(event.target.value);
   }
 
   async function handleLogin() {
-    // try {
-    //   setIsLoading(true);
-
-    // } catch {
-    //   alert('Login ou Senha inválidos!');
-    // } finally {
-    //   setIsLoading(false);
-    // }
-    await login(email, password);
+    try {
+      setIsLoading(true);
+      await login(email, senha);
+    } catch {
+      console.log('erro');
+    } finally {
+      setIsLoading(false);
+      history.push('/home/recrutador');
+    }
   }
 
   return (
@@ -62,7 +62,7 @@ export default function Login() {
             onChange={handleEmailChange}
           />
           <Input
-            value={password}
+            value={senha}
             type="password"
             placeholder="Senha"
             onChange={handlePasswordChange}

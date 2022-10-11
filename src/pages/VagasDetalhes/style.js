@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import remove from '../../assets/images/remove.png';
+
 export const FiltroPretensaoSalarial = styled.div`
   width: 1440px;
   margin: 0 auto;
@@ -57,13 +59,32 @@ export const CardVaga = styled.div`
 `;
 
 export const TitleCard = styled.div`
-  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* text-align: center; */
   margin-top: 20px;
+  margin-bottom: 20px;
 
   h1{
     font-weight: normal;
     font-size: 18px;
-    margin-bottom: 20px;
+   }
+
+   img{
+    width: 32px;
+    height: 32px;
+   }
+
+   button{
+    width: 35px;
+    height: 35px;
+    border-radius: 120px;
+    border: none;
+    background: rgba(61, 61, 61, 0.1);
+    background-image: url(${remove});
+    background-size: cover;
    }
 `;
 

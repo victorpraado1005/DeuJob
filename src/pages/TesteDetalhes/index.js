@@ -7,6 +7,7 @@ import Header from '../../Components/Header';
 import { teste } from '../../utils/mock/teste';
 
 import arrowLeft from '../../assets/images/leftArrow.png';
+import history from '../../history';
 
 export default function TesteDetalhes() {
   const { nome } = useParams();
@@ -14,6 +15,12 @@ export default function TesteDetalhes() {
     (testeAtual) => testeAtual.nome === nome,
   );
   console.log(testeAtualizado[0].questoes);
+
+  function handleRemoveTeste() {
+    const indice = teste.indexOf(nome);
+    teste.splice(indice, 1);
+    history.push('/home/recrutador');
+  }
 
   return (
     <>
@@ -66,6 +73,9 @@ export default function TesteDetalhes() {
             </div>
           </CardPergunta>
         ))}
+        <button type="button" onClick={handleRemoveTeste}>
+        &nbsp;
+        </button>
       </CardTeste>
     </>
   );
