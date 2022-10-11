@@ -11,16 +11,18 @@ import {
   TitleCard,
   CardDescricaoVaga,
   CardCandidatosVaga,
-  CardCandidatoVaga,
+  CardCandidatoVaga, FiltroPretensaoSalarial,
 } from './style';
 
 import Header from '../../Components/Header';
 import arrowLeft from '../../assets/images/leftArrow.png';
+import filter from '../../assets/images/filter.png';
 
 export default function VagasDetalhes() {
   const { id } = useParams();
   const [infoVaga, setInfoVaga] = useState('');
   const [candidatos, setCandidatos] = useState([]);
+  const [filtroPretensao, setFiltroPretensao] = useState('');
 
   useEffect(() => {
     (async () => {
@@ -36,9 +38,25 @@ export default function VagasDetalhes() {
     })();
   }, []);
 
+  function handleFiltrar() {
+    setCandidatos((prevState) => prevState.filter(
+      (candidatoAtual) => candidatoAtual.pretensao_salarial <= filtroPretensao,
+    ));
+  }
+
   return (
     <>
       <Header />
+      <FiltroPretensaoSalarial>
+        <img src={filter} alt="Filtro" />
+        <h3>Pretensão Salarial:</h3>
+        <input
+          type="text"
+          placeholder="Valor (Ex: 5000)"
+          onChange={(event) => setFiltroPretensao(event.target.value)}
+        />
+        <button type="button" onClick={handleFiltrar}>Filtrar</button>
+      </FiltroPretensaoSalarial>
       <Container>
         <Link to="/home/recrutador">
           <img src={arrowLeft} alt="Voltar" width="40px" height="40px" />
@@ -105,6 +123,14 @@ export default function VagasDetalhes() {
                   <div className="info-candidato">
                     <span className="font-yellow">Histórico Profissional: </span>
                     <span>{candidato.historico_profissional}</span>
+                  </div>
+                  <div className="info-candidato">
+                    <span className="font-yellow">Pretensão Salarial: </span>
+                    <span>
+                      R$
+                      {' '}
+                      {candidato.pretensao_salarial}
+                    </span>
                   </div>
                 </div>
               </div>

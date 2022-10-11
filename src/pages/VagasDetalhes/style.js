@@ -1,5 +1,42 @@
 import styled from 'styled-components';
 
+export const FiltroPretensaoSalarial = styled.div`
+  width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  /* text-align: center; */
+
+  img{
+    margin-right: 10px;
+   }
+
+  h3{
+    font-size: 18px;
+    font-weight: normal;
+  }
+
+  input{
+    margin: 0 15px;
+    width: 125px;
+    height: 28px;
+    background: rgba(83, 83, 83, 0.7);
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    padding: 12px;
+    color: yellow;
+  }
+
+  button{
+    width: 100px;
+    height: 25px;
+    background: #F6E51C;
+    border-radius: 5px;
+    border: none;
+  }
+`;
+
 export const Container = styled.div`
   display: flex;
   justify-content: space-evenly;
