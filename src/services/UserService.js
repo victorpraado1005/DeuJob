@@ -16,6 +16,10 @@ class UserService {
   updateUser(id, user) {
     return this.httpClient.put(`/users/${id}`, user);
   }
+
+  updatePontosUser(id, pontos) {
+    return this.httpClient.put(`/users/pontos/${id}`, pontos);
+  }
 }
 
 export default new UserService();

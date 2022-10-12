@@ -28,6 +28,7 @@ export default function HomeCandidato() {
   const [userData, setUserData] = useState('');
   const [candidaturas, setCandidaturas] = useState([]);
   const [vagas, setVagas] = useState([]);
+  const [jobPoints, setJobPoints] = useState(0);
   // const { authenticated } = useContext(Context);
 
   // if (authenticated === true) {
@@ -40,6 +41,7 @@ export default function HomeCandidato() {
       try {
         const user = await UserService.getUserById(UserId);
         setUserData(user);
+        setJobPoints(user.pontos);
         const vagaList = await VagasService.getVagas();
         setVagas(vagaList);
         const vagasCandidato = await CandidatoService.getVagasByCandidatoId(
@@ -67,6 +69,14 @@ export default function HomeCandidato() {
 
       setCandidaturas(await CandidatoService.getVagasByCandidatoId(UserId));
 
+      let { pontos } = userData;
+      pontos += 50;
+      const UserPonto = {
+        pontos,
+      };
+      await UserService.updatePontosUser(UserId, UserPonto);
+      setJobPoints(pontos);
+
       setVagas((prevState) => prevState.filter((vaga) => vaga.id !== vagaClick.id));
     } catch {
       alert('Não foi possível se candidatar a essa vaga. Tente Novamente.');
@@ -78,7 +88,7 @@ export default function HomeCandidato() {
       <Header />
       <PontosContainer>
         <img src={imgPontos} alt="" />
-        {userData.pontos}
+        {jobPoints}
       </PontosContainer>
       <TitleContainer>
         <h3>
@@ -108,7 +118,7 @@ export default function HomeCandidato() {
                   +100
                 </span>
               </div>
-              <button type="button">Acessar</button>
+              <button type="button" onClick={() => history.push(`/realizarTeste/${testeAtual.nome}`)}>Acessar</button>
             </CardTeste>
           ))}
         </div>
@@ -166,7 +176,7 @@ export default function HomeCandidato() {
                     <span>{vaga.nome}</span>
                   </div>
                   <div>
-                    <button type="button" onClick={() => history.push(`/detalhesVaga/${vaga.id_vaga}`)}>Exibir Detalhes</button>
+                    <button type="button" onClick={() => history.push(`/detalhesVaga/${vaga.id_vaga}/${vaga.id}`)}>Exibir Detalhes</button>
                   </div>
                 </div>
               </CardVaga>

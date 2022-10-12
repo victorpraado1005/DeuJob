@@ -28,6 +28,10 @@ class CandidatoService {
   deleteCandidaturasByVagaId(vagaId) {
     return this.httpClient.delete(`/candidatos/${vagaId}`);
   }
+
+  deleteById(id) {
+    return this.httpClient.delete(`/candidatura/${id}`);
+  }
 }
 
 export default new CandidatoService();

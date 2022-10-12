@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { useParams, Link } from 'react-router-dom';
 
+import UserService from '../../services/UserService';
 import VagasService from '../../services/VagasService';
 import CandidatoService from '../../services/CandidatoService';
 
@@ -17,13 +18,17 @@ import arrowLeft from '../../assets/images/leftArrow.png';
 import history from '../../history';
 
 export default function VagasDetalhesCandidato() {
-  const { id } = useParams();
+  const UserId = localStorage.getItem('UserID');
+  const { vaga_id, candidatura_id } = useParams();
   const [infoVaga, setInfoVaga] = useState('');
+  let [pontos, setPontos] = useState(0);
 
   useEffect(() => {
     (async () => {
       try {
-        const dataVaga = await VagasService.getVagasById(id);
+        const user = await UserService.getUserById(UserId);
+        setPontos(user.pontos);
+        const dataVaga = await VagasService.getVagasById(vaga_id);
         setInfoVaga(dataVaga);
       } catch (error) {
         console.log(error.message);
@@ -31,10 +36,14 @@ export default function VagasDetalhesCandidato() {
     })();
   }, []);
 
-  async function handleRemoveVaga() {
-    await CandidatoService.deleteCandidaturasByVagaId(id);
-    await VagasService.deleteVaga(id);
-    history.push('/home/recrutador');
+  async function handleRemoveCandidatura() {
+    await CandidatoService.deleteById(candidatura_id);
+    pontos -= 50;
+    const UserPoints = {
+      pontos,
+    };
+    await UserService.updatePontosUser(UserId, UserPoints);
+    history.push('/home/candidato');
   }
 
   return (
@@ -47,7 +56,7 @@ export default function VagasDetalhesCandidato() {
               <img src={arrowLeft} alt="Voltar" width="40px" height="40px" />
             </Link>
             <h1>{infoVaga.nome}</h1>
-            <button type="button" onClick={handleRemoveVaga}>
+            <button type="button" onClick={handleRemoveCandidatura}>
               Remover Candidatura
             </button>
           </TitleCard>
