@@ -6,7 +6,7 @@ import {
   ContainerCards,
   ContainerVagas,
   CardVaga, CardVagas,
-  CardTeste,
+  CardTeste, ButtonArea,
 } from './style';
 
 // import { Context } from '../../Context/AuthContext';
@@ -184,6 +184,9 @@ export default function HomeCandidato() {
           </ContainerVagas>
         </div>
       </ContainerCards>
+      <ButtonArea>
+        <button type="button" onClick={() => history.push(`/editarUsuario/${UserId}`)}>Editar Informações</button>
+      </ButtonArea>
     </>
   );
 }

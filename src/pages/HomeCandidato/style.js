@@ -169,3 +169,17 @@ export const CardVaga = styled.div`
       border: none;
      }
 `;
+
+export const ButtonArea = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+  button{
+    width: 134px;
+    height: 25px;
+    background: #F6E51C;
+    border-radius: 5px;
+    border: none;
+  }
+`;

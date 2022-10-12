@@ -11,6 +11,8 @@ import TesteDetalhes from './pages/TesteDetalhes';
 import AddTeste from './pages/AddTeste';
 import VagasDetalhesCandidato from './pages/VagasDetalhesCandidato';
 import RealizarTeste from './pages/RealizarTeste';
+import InformacoesCandidato from './pages/InformacoesCandidato';
+import InformacoesCandidatoProfissional from './pages/InformacoesCandidatoProfissional';
 
 function CustomRoute({ isPrivate, ...rest }) {
   const logged = localStorage.getItem('UserID');
@@ -36,6 +38,8 @@ export default function Routes() {
       <CustomRoute isPrivate exact path="/addTeste" component={AddTeste} />
       <CustomRoute isPrivate exact path="/detalhesVaga/:vaga_id/:candidatura_id" component={VagasDetalhesCandidato} />
       <CustomRoute isPrivate exact path="/realizarTeste/:nome" component={RealizarTeste} />
+      <CustomRoute isPrivate exact path="/editarUsuario/:id" component={InformacoesCandidato} />
+      <CustomRoute isPrivate exact path="/editarUsuario/editarInfoProfissional/:id" component={InformacoesCandidatoProfissional} />
     </Switch>
   );
 }
