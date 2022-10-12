@@ -30,11 +30,48 @@ export const ContainerCards = styled.div`
     height: 563px;
     background: rgba(0, 0, 0, 0.6);
     border-radius: 25px;
+    padding: 12px;
+    text-align: center;
+
+    .subtitle-card-teste{
+      font-size: 14px;
+      display: flex;
+      align-items: start;
+      width: 220px;
+      margin: 20px auto;
+    }
   }
 
   .cardVagas{
     width: 454px;
   }
+`;
+
+export const CardTeste = styled.div`
+  width: 320px;
+  height: 52px;
+  background: rgba(61, 61, 61, 0.8);
+  border-radius: 12px;
+  padding: 12px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  button{
+    width: 72px;
+    height: 25px;
+    background: #F6E51C;
+    border-radius: 5px;
+    border: none;
+   }
+
+   .pontos-curso{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+   }
 `;
 
 export const CardVagas = styled.div`
@@ -97,14 +134,16 @@ export const ContainerVagas = styled.div`
   .title-card {
     margin-top: 20px;
     text-align: center;
-    margin-bottom: 40px;
     font-size: 18px;
   }
 
-  .subtitle-card{
-    margin-bottom: 40px;
+  .subtitle-card-candidatura{
     font-size: 14px;
-    text-align: center;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    width: 220px;
+    margin: 20px auto;
   }
 `;
 

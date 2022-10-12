@@ -6,18 +6,22 @@ import {
   ContainerCards,
   ContainerVagas,
   CardVaga, CardVagas,
+  CardTeste,
 } from './style';
 
 // import { Context } from '../../Context/AuthContext';
 import UserService from '../../services/UserService';
 import CandidatoService from '../../services/CandidatoService';
 import VagasService from '../../services/VagasService';
+import { teste } from '../../utils/mock/teste';
 
 import imgPontos from '../../assets/images/ponto.png';
 import like from '../../assets/images/like.png';
 import dislike from '../../assets/images/dislike.png';
 
 import Header from '../../Components/Header';
+
+import history from '../../history';
 
 export default function HomeCandidato() {
   const UserId = localStorage.getItem('UserID');
@@ -89,7 +93,24 @@ export default function HomeCandidato() {
       </TitleContainer>
       <ContainerCards>
         <div className="card-testes">
-          <h1>Alo</h1>
+          <h4>Testes Cadastrados pela EY </h4>
+          <div className="subtitle-card-teste">
+            <img src={imgPontos} alt="ponto" />
+            <span>A cada curso concluído você recebe 100 JobPoints</span>
+          </div>
+          {teste.map((testeAtual) => (
+            <CardTeste>
+              <h4>{testeAtual.nome}</h4>
+              <div className="pontos-curso">
+                <img src={imgPontos} alt="ponto" />
+                <span>
+                  {' '}
+                  +100
+                </span>
+              </div>
+              <button type="button">Acessar</button>
+            </CardTeste>
+          ))}
         </div>
         <div className="cardVagas">
           <>
@@ -132,9 +153,12 @@ export default function HomeCandidato() {
             <div className="title-card">
               <span>Histórico de Candidatura</span>
             </div>
-            <span className="subtitle-card">
-              A cada candidatura você ganha +5 JobPoints e +10XP
-            </span>
+            <div className="subtitle-card-candidatura">
+              <img src={imgPontos} alt="ponto" />
+              <span>
+                A cada candidatura você ganha +50 JobPoints
+              </span>
+            </div>
             {candidaturas.map((vaga) => (
               <CardVaga key={vaga.id}>
                 <div className="container-vaga">
@@ -142,7 +166,7 @@ export default function HomeCandidato() {
                     <span>{vaga.nome}</span>
                   </div>
                   <div>
-                    <button type="button">Exibir Detalhes</button>
+                    <button type="button" onClick={() => history.push(`/detalhesVaga/${vaga.id_vaga}`)}>Exibir Detalhes</button>
                   </div>
                 </div>
               </CardVaga>

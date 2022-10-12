@@ -26,6 +26,7 @@ export const CardTeste = styled.div`
     width: 40px;
     height: 40px;
     color: white;
+    border: none;
   }
 `;
 
