@@ -56,8 +56,8 @@ export default function HomeRecrutador() {
           !
         </h1>
         <span>
-          Visualize e cadastre suas vagas e tenha acesso a central de mensagens
-          com os candidatos
+          Visualize e cadastre suas vagas e tenha acesso a central de testes
+          para os candidatos
         </span>
       </TitleContainer>
       <ContainerCards>
