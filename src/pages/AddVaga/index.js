@@ -13,7 +13,7 @@ import history from '../../history';
 
 export default function AddVaga() {
   const [nome, setNome] = useState('');
-  const [benefico, setBenefico] = useState('');
+  const [beneficios, setBeneficios] = useState('');
   const [requisitos, setRequisitos] = useState('');
   const [descricao, setDescricao] = useState('');
 
@@ -22,7 +22,7 @@ export default function AddVaga() {
       return alert('Favor preencher campo de nome');
     }
 
-    if (!benefico) {
+    if (!beneficios) {
       return alert('Favor preencher campo de Benefícios');
     }
 
@@ -38,14 +38,14 @@ export default function AddVaga() {
       const Vaga = {
         nome,
         descricao,
-        beneficos: benefico,
+        beneficios,
         requisitos,
       };
 
       await VagasService.createVaga(Vaga);
 
       setNome('');
-      setBenefico('');
+      setBeneficios('');
       setRequisitos('');
       setDescricao('');
       history.push('/home/recrutador');
@@ -77,7 +77,7 @@ export default function AddVaga() {
             className="input-beneficios"
             type="text"
             placeholder="Benefícios"
-            onChange={(event) => setBenefico(event.target.value)}
+            onChange={(event) => setBeneficios(event.target.value)}
           />
           <input
             className="input-requisitos"

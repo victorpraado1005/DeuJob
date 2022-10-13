@@ -32,6 +32,10 @@ export const ContainerCards = styled.div`
     border-radius: 25px;
     padding: 12px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-between; */
 
     .subtitle-card-teste{
       font-size: 14px;
@@ -39,6 +43,14 @@ export const ContainerCards = styled.div`
       align-items: start;
       width: 220px;
       margin: 20px auto;
+    }
+
+    button{
+      width: 72px;
+      height: 25px;
+      background: #F6E51C;
+      border-radius: 5px;
+      border: none;
     }
   }
 
@@ -172,12 +184,12 @@ export const CardVaga = styled.div`
 
 export const ButtonArea = styled.div`
   display: flex;
-  justify-content: center;
-  margin-top: 20px;
+  justify-content: space-evenly;
+  margin-top: 30px;
 
   button{
     width: 134px;
-    height: 25px;
+    height: 35px;
     background: #F6E51C;
     border-radius: 5px;
     border: none;

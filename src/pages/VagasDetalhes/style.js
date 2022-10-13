@@ -52,7 +52,7 @@ export const Container = styled.div`
 
 export const CardVaga = styled.div`
   width: 448px;
-  height: 608px;
+  height: 628px;
   background: rgba(0, 0, 0, 0.5);
   border-radius: 25px;
   padding: 12px;

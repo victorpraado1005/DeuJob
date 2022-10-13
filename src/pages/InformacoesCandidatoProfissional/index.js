@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import { Container, CardEditarInformacoes } from './style';
 
@@ -11,6 +11,8 @@ import Header from '../../Components/Header';
 import Loader from '../../Components/Loader';
 
 import history from '../../history';
+
+import arrowLeft from '../../assets/images/leftArrow.png';
 
 export default function InformacoesCandidatoProfissional() {
   const { id } = useParams();
@@ -66,8 +68,18 @@ export default function InformacoesCandidatoProfissional() {
         <h4>Preencha as informações do seu perfil</h4>
         <CardEditarInformacoes>
           <div className="title-edit-user">
-            <button type="button" onClick={() => history.push(`/editarUsuario/${id}`)}>Informações Pessoais</button>
-            <button type="button">Informações Profissionais</button>
+            <div>
+              <Link to="/home/candidato">
+                <img src={arrowLeft} alt="Voltar" width="40px" height="40px" />
+              </Link>
+            </div>
+            <div>
+              <button type="button" onClick={() => history.push(`/editarUsuario/${id}`)}>Informações Pessoais</button>
+              <button type="button">Informações Profissionais</button>
+            </div>
+            <div>
+              &nbsp;
+            </div>
           </div>
           <div className="input-area">
             <span>Formação Acadêmica:</span>

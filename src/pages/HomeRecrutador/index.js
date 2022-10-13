@@ -26,7 +26,10 @@ export default function HomeRecrutador() {
   const UserName = localStorage.getItem('UserName');
   const [isLoading, setIsLoading] = useState(false);
   const [vagas, setVagas] = useState([]);
-  const [testes] = useState(teste);
+  // const [testes] = useState(teste);
+  const testesEy = teste.filter(
+    (testeAtual) => testeAtual.inscritos === '8a79694c-9a53-483f-b5c7-e4748573ecee',
+  );
 
   useEffect(() => {
     (async () => {
@@ -65,7 +68,7 @@ export default function HomeRecrutador() {
               <img src={add} alt="" />
             </Link>
           </div>
-          {testes.map((testeAtual) => (
+          {testesEy.map((testeAtual) => (
             <CardTeste>
               <h4>{testeAtual.nome}</h4>
               <button

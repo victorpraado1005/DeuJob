@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const CardVaga = styled.div`
   width: 1034px;
-  height: 900px;
+  height: 980px;
   background: rgba(0, 0, 0, 0.5);
   border-radius: 25px;
   padding: 12px;
@@ -46,6 +46,18 @@ export const CardVaga = styled.div`
       .alternativa{
         display: flex;
         flex-direction: column;
+      }
+    }
+
+    .info-preco-nivel{
+      display: flex;
+      justify-content: center;
+      margin: 10px auto;
+
+      input{
+        margin-right: 10px;
+        width: 200px;
+        height: 40px;
       }
     }
   }

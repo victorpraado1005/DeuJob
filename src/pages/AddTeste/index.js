@@ -34,6 +34,8 @@ export default function AddTeste() {
   const [alternativaP4B, setAlternativaP4B] = useState('');
   const [alternativaP4C, setAlternativaP4C] = useState('');
   const [alternativaP4D, setAlternativaP4D] = useState('');
+  const [preco] = useState(0);
+  const [nivel] = useState('');
 
   function handleCriarTeste() {
     const testeCadastrar = {
@@ -68,6 +70,10 @@ export default function AddTeste() {
           alternativa4: alternativaP4D,
         },
       ],
+      concluido: false,
+      inscritos: '8a79694c-9a53-483f-b5c7-e4748573ecee',
+      preco,
+      nivel,
     };
 
     teste.push(testeCadastrar);

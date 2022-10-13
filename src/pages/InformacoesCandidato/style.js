@@ -16,7 +16,7 @@ export const CardEditarInformacoes = styled.div`
   .title-edit-user{
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin-top: 5px;
 

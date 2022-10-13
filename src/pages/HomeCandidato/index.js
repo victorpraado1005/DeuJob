@@ -36,6 +36,10 @@ export default function HomeCandidato() {
   //   console.debug(UserId);
   // }
 
+  const testesUsuario = teste.filter(
+    (testeAtual) => testeAtual.inscritos === UserId,
+  );
+
   useEffect(() => {
     (async () => {
       try {
@@ -108,7 +112,7 @@ export default function HomeCandidato() {
             <img src={imgPontos} alt="ponto" />
             <span>A cada curso concluído você recebe 100 JobPoints</span>
           </div>
-          {teste.map((testeAtual) => (
+          {testesUsuario.map((testeAtual) => (
             <CardTeste>
               <h4>{testeAtual.nome}</h4>
               <div className="pontos-curso">
@@ -118,7 +122,11 @@ export default function HomeCandidato() {
                   +100
                 </span>
               </div>
-              <button type="button" onClick={() => history.push(`/realizarTeste/${testeAtual.nome}`)}>Acessar</button>
+              {testeAtual.concluido === true ? (
+                <h4>Concluído</h4>
+              ) : (
+                <button type="button" onClick={() => history.push(`/realizarTeste/${testeAtual.nome}`)}>Acessar</button>
+              )}
             </CardTeste>
           ))}
         </div>
@@ -185,6 +193,7 @@ export default function HomeCandidato() {
         </div>
       </ContainerCards>
       <ButtonArea>
+        <button type="button" onClick={() => history.push('/loja')}>Loja</button>
         <button type="button" onClick={() => history.push(`/editarUsuario/${UserId}`)}>Editar Informações</button>
       </ButtonArea>
     </>

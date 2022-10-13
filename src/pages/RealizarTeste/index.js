@@ -80,6 +80,12 @@ export default function RealizarTeste() {
           pontos: pontosUsuario,
         };
         await UserService.updatePontosUser(UserId, userPoints);
+        for (let testeAtual of teste) {
+          if (testeAtual.nome === testeAtualizado[0].nome) {
+            testeAtual.concluido = true;
+            console.log(testeAtual);
+          }
+        }
       } catch {
         console.log('Erro no update de pontos');
       } finally {
